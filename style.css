@@ -537,3 +537,235 @@ footer .icon i{
 footer .icon i:hover{
     color:#088178;
 }
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Hamburger icon – hidden on desktop */
+#mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+/* Close button inside nav – hidden on desktop */
+#close-btn {
+  display: none;
+}
+
+/* ---- Tablet: 768px – 1024px ---- */
+@media (max-width: 1024px) {
+  .section-p1 {
+    padding: 40px 40px;
+  }
+
+  #header {
+    padding: 15px 40px;
+  }
+
+  #hero {
+    padding: 0 40px;
+    background-size: 50%;
+  }
+
+  h1 { font-size: 38px; line-height: 50px; }
+  h2 { font-size: 34px; line-height: 44px; }
+
+  #product1 .pro {
+    width: 46%;
+  }
+
+  #sm-banner .banner-box {
+    min-width: 48%;
+  }
+
+  #banner3 {
+    padding: 0 40px;
+  }
+
+  #newsletter .form {
+    width: 50%;
+  }
+}
+
+/* ---- Mobile: up to 768px ---- */
+@media (max-width: 768px) {
+
+  /* --- Header / Navbar --- */
+  #header {
+    padding: 15px 20px;
+    position: relative;
+  }
+
+  #mobile-menu-icon {
+    display: block;
+  }
+
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #E3E6F3;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 260px;
+    height: 100vh;
+    padding: 60px 20px 20px;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 9999;
+    overflow-y: auto;
+  }
+
+  #navbar.active {
+    right: 0;
+  }
+
+  #navbar li {
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  #navbar li a {
+    font-size: 15px;
+  }
+
+  #navbar li a.active::after,
+  #navbar li a:hover::after {
+    display: none;
+  }
+
+  #close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border-bottom: none;
+    font-size: 20px;
+  }
+
+  /* --- Hero --- */
+  #hero {
+    padding: 40px 20px;
+    background-size: 0%;   /* hide the decorative image on small screens */
+    height: auto;
+    min-height: 60vh;
+  }
+
+  #hero h4 { font-size: 14px; }
+  h1 { font-size: 28px; line-height: 38px; }
+  h2 { font-size: 24px; line-height: 34px; }
+
+  #hero button {
+    padding: 12px 40px 12px 30px;
+    font-size: 13px;
+  }
+
+  /* --- Feature boxes --- */
+  .section-p1 {
+    padding: 30px 20px;
+  }
+
+  #feature {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  #feature .fe-box {
+    width: 140px;
+    padding: 18px 10px;
+  }
+
+  /* --- Products --- */
+  #product1 .pro-container {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  #product1 .pro {
+    width: 46%;
+    min-width: unset;
+  }
+
+  /* --- SM Banners --- */
+  #sm-banner {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  #sm-banner .banner-box {
+    min-width: 100%;
+    height: 45vw;
+    min-height: 200px;
+    margin-bottom: 16px;
+  }
+
+  /* --- Banner 3 --- */
+  #banner3 {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  #banner3 .banner-box {
+    min-width: 100%;
+    height: 30vw;
+    min-height: 160px;
+  }
+
+  /* --- Newsletter --- */
+  #newsletter {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  #newsletter .newstext {
+    margin-bottom: 20px;
+  }
+
+  #newsletter .form {
+    width: 100%;
+  }
+
+  #newsletter input {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 30px 20px;
+    flex-direction: column;
+  }
+
+  footer .col {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+}
+
+/* ---- Small mobile: up to 480px ---- */
+@media (max-width: 480px) {
+  #product1 .pro {
+    width: 100%;
+  }
+
+  h1 { font-size: 24px; line-height: 34px; }
+  h2 { font-size: 20px; line-height: 30px; }
+
+  #hero {
+    min-height: 50vh;
+  }
+
+  #banner {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  #sm-banner .banner-box {
+    height: 55vw;
+  }
+}
