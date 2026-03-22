@@ -136,15 +136,15 @@ body {
 /* Home Page*/
 
 #hero{
-  background-image: url("img/image\ \(21\)\ \(1\).png");
+  background-image: url("img-hero-desktop.png");
   height: 90vh;
   width: 100%;
 
-  background-size: 60%;
+  background-size: 55%;
   background-repeat: no-repeat;
-  background-position: right bottom ;
+  background-position: right center;
 
-  background-color: #e3e6f3; /* match the image background */
+  background-color: #e3e6f3;
 
   padding: 0 80px;
 
@@ -615,27 +615,62 @@ footer .icon i:hover{
   /* --- Header / Navbar --- */
   #header {
     padding: 15px 20px;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
   #mobile-menu-icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 18px;
+    color: #088178;
+    transition: 0.2s;
+  }
+
+  #mobile-menu-icon:hover {
+    background: #088178;
+    color: #fff;
+  }
+
+  /* Dark overlay behind nav */
+  #navbar::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  #navbar.active::before {
+    opacity: 1;
+    pointer-events: all;
   }
 
   #navbar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: #E3E6F3;
+    background: #ffffff;
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 260px;
+    right: -320px;
+    width: 280px;
     height: 100vh;
-    padding: 60px 20px 20px;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
-    transition: right 0.3s ease;
-    z-index: 9999;
+    padding: 0;
+    box-shadow: -6px 0 30px rgba(0,0,0,0.15);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99999;
     overflow-y: auto;
   }
 
@@ -643,14 +678,70 @@ footer .icon i:hover{
     right: 0;
   }
 
-  #navbar li {
-    padding: 12px 0;
+  /* Nav header bar inside drawer */
+  #close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding: 18px 20px;
+    background: #088178;
+    border-bottom: none;
+    position: static;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  #close-btn::before {
+    content: "MENU";
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  #close-btn a {
+    color: #fff !important;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: 0.2s;
+  }
+
+  #close-btn a:hover {
+    background: rgba(255,255,255,0.4);
+  }
+
+  #navbar li {
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   #navbar li a {
-    font-size: 15px;
+    display: block;
+    padding: 15px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #222 !important;
+    letter-spacing: 0.5px;
+    transition: 0.2s;
+  }
+
+  #navbar li:not(#close-btn) a:hover {
+    background: #f5faf9;
+    color: #088178 !important;
+    padding-left: 30px;
+  }
+
+  #navbar li a.active {
+    color: #088178 !important;
+    background: #f0faf8;
   }
 
   #navbar li a.active::after,
@@ -658,21 +749,15 @@ footer .icon i:hover{
     display: none;
   }
 
-  #close-btn {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    border-bottom: none;
-    font-size: 20px;
-  }
-
   /* --- Hero --- */
   #hero {
-    padding: 40px 20px;
-    background-size: 0%;   /* hide the decorative image on small screens */
+    padding: 30px 20px 0 20px;
+    background-image: url("img/hero-mobile.png");
+    background-size: 100%;
+    background-position: right bottom;
     height: auto;
-    min-height: 60vh;
+    min-height: 110vw;
+    justify-content: flex-start;
   }
 
   #hero h4 { font-size: 14px; }
@@ -776,7 +861,8 @@ footer .icon i:hover{
   h2 { font-size: 20px; line-height: 30px; }
 
   #hero {
-    min-height: 50vh;
+    min-height: 120vw;
+    background-size: 105%;
   }
 
   #banner {

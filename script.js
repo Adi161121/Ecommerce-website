@@ -3,22 +3,25 @@ const bar = document.getElementById('bar');
 const closeBtn = document.getElementById('close');
 const navbar = document.getElementById('navbar');
 
-if (bar) {
-  bar.addEventListener('click', () => {
-    navbar.classList.add('active');
-  });
+function openNav() {
+  navbar.classList.add('active');
+  document.body.style.overflow = 'hidden'; // prevent background scroll
 }
 
-if (closeBtn) {
-  closeBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    navbar.classList.remove('active');
-  });
+function closeNav() {
+  navbar.classList.remove('active');
+  document.body.style.overflow = '';
 }
+
+if (bar) bar.addEventListener('click', openNav);
+if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeNav(); });
+
+// Close when clicking the dark overlay (the ::before pseudo element area)
+navbar.addEventListener('click', (e) => {
+  if (e.target === navbar) closeNav();
+});
 
 // Close nav when a link is clicked
-document.querySelectorAll('#navbar li a').forEach(link => {
-  link.addEventListener('click', () => {
-    navbar.classList.remove('active');
-  });
+document.querySelectorAll('#navbar li:not(#close-btn) a').forEach(link => {
+  link.addEventListener('click', closeNav);
 });
