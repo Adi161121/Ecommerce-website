@@ -238,20 +238,40 @@ body {
 
 #product1 .pro-container{
   display: flex;
-  justify-content: space-between;
-  padding-top: 20px; 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #088178 #e3e6f3;
 }
+
+#product1 .pro-container::-webkit-scrollbar {
+  height: 6px;
+}
+#product1 .pro-container::-webkit-scrollbar-track {
+  background: #e3e6f3;
+  border-radius: 4px;
+}
+#product1 .pro-container::-webkit-scrollbar-thumb {
+  background: #088178;
+  border-radius: 4px;
+}
+
  #product1 .pro{
-  width: 23%;
-  min-width: 250px;
+  flex: 0 0 calc(25% - 12px);
+  min-width: 220px;
   padding: 10px 12px;
   border: 1px solid #cce7de;
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 20px 20px 30px rgba(0,0,0, 0.02);
-  margin: 15px 0;
+  margin: 0;
   position: relative;
+  scroll-snap-align: start;
  }
 
 #product1 .pro:hover{
@@ -573,7 +593,7 @@ footer .icon i:hover{
   h2 { font-size: 34px; line-height: 44px; }
 
   #product1 .pro {
-    width: 46%;
+    flex: 0 0 45%;
   }
 
   #sm-banner .banner-box {
@@ -681,12 +701,11 @@ footer .icon i:hover{
 
   /* --- Products --- */
   #product1 .pro-container {
-    justify-content: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   #product1 .pro {
-    width: 46%;
+    flex: 0 0 70vw;
     min-width: unset;
   }
 
@@ -750,7 +769,7 @@ footer .icon i:hover{
 /* ---- Small mobile: up to 480px ---- */
 @media (max-width: 480px) {
   #product1 .pro {
-    width: 100%;
+    flex: 0 0 80vw;
   }
 
   h1 { font-size: 24px; line-height: 34px; }
